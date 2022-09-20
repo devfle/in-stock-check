@@ -1,0 +1,36 @@
+{
+  "name": "stock-control",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --experimental-json-modules ./src/index.mjs",
+    "lint": "eslint src/*.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devfle/stock-control.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devfle/stock-control/issues"
+  },
+  "homepage": "https://github.com/devfle/stock-control#readme",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "discord.js": "^14.3.0",
+    "dotenv": "^16.0.1",
+    "jsdom": "^20.0.0",
+    "node-fetch": "^3.2.6"
+  },
+  "devDependencies": {
+    "eslint": "^8.19.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "prettier": "^2.7.1"
+  }
+}
