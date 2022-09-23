@@ -37,3 +37,7 @@ All metadata for the web pages that are to be analyzed are listed here.
 ```
 
 Multiple web pages can also be configured.
+
+## Docker
+
+The NodeJs script can also run in a Docker environment.
