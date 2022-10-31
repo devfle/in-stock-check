@@ -28,10 +28,10 @@ All metadata for the web pages that are to be analyzed are listed here.
 ```
 [
   {
-    shopName: "NAME OF THE WEBSITE",
-    productEndpoint: "URL TO THE WEBSITE",
-    searchQuery: "THE SELECTOR YOU WANT TO SEARCH",
-    showProductLink: false
+    "shopName": "NAME OF THE WEBSITE",
+    "productEndpoint": "URL TO THE WEBSITE",
+    "searchQuery": "THE SELECTOR YOU WANT TO SEARCH",
+    "showProductLink": false
   }
 ]
 ```
