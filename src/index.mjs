@@ -2,12 +2,20 @@ import { JSDOM } from 'jsdom';
 import fetch from 'node-fetch';
 import shopList from './shop-list.json';
 // eslint-disable-next-line import/extensions
-import { errorMsg, infoMsg, successMsg, warnMsg, sendNotification } from './utils.mjs';
+import {
+  errorMsg,
+  infoMsg,
+  successMsg,
+  warnMsg,
+  sendNotification,
+} from './utils.mjs';
 // eslint-disable-next-line import/extensions
 import client from './discord.mjs';
 
 if (!shopList && shopList.length === 0) {
-  errorMsg("NO SHOP DATA FOUND IN 'shop-list.json' YOU HAVE TO CREATE AND CONFIGURE IT.");
+  errorMsg(
+    "NO SHOP DATA FOUND IN 'shop-list.json' YOU HAVE TO CREATE AND CONFIGURE IT."
+  );
   process.exit(1);
 }
 
@@ -51,14 +59,20 @@ const searchInDom = (domText, searchQuery = '') => {
  */
 setInterval(() => {
   shopList.forEach((shopItem) => {
-    const { shopName, productEndpoint, searchQuery, showProductLink } = shopItem;
+    const { shopName, productEndpoint, searchQuery, showProductLink } =
+      shopItem;
     infoMsg(`NOW SEARCHING ON ${shopName}...`);
     const fetchedTextDom = fetchWebsiteData(productEndpoint);
     const searchResult = searchInDom(fetchedTextDom, searchQuery);
 
     if (searchResult) {
       successMsg(`ITEM IN STOCK AT: ${shopName}, SENDING NOTIFICATION...`);
-      sendNotification(client, `ITEM IN STOCK AT: ${shopName}. ${showProductLink ? `LINK TO PRODUCT: ${productEndpoint}` : ''}`);
+      sendNotification(
+        client,
+        `ITEM IN STOCK AT: ${shopName}. ${
+          showProductLink ? `LINK TO PRODUCT: ${productEndpoint}` : ''
+        }`
+      );
     } else {
       warnMsg('NOTHING CHANGED...');
     }
