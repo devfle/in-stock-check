@@ -1,6 +1,6 @@
 import { JSDOM } from 'jsdom';
 import fetch from 'node-fetch';
-import shopList from './shop-list.json';
+import shopList from './shop-list.json' assert { type: 'json' };
 // eslint-disable-next-line import/extensions
 import {
   errorMsg,
