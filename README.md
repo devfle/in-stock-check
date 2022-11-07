@@ -1,6 +1,6 @@
 # In Stock Check
 
-Welcome to the Stock Check tool. This tool allows you to search for specific DOM elements on web pages and then send a Discord notification to your own Discore server.
+Welcome to the Stock Check tool. This tool allows you to search for specific DOM elements on web pages and then send a notification to your own Discord server.
 
 The tool was originally built to send a notification when a certain product is back in stock in a store.
 
