@@ -2,13 +2,23 @@
 import chalk from 'chalk';
 
 /**
+ * Returns the current time
+ *
+ * @returns {string} The current time
+ */
+function getCurrentTime() {
+  const currentDate = new Date();
+  return `${currentDate.getHours()}:${currentDate.getMinutes()}`;
+}
+
+/**
  * Creates an error message
  *
  * @param {string} message - The message to be displayed in the console
  *
  */
 const errorMsg = (message) => {
-  console.log(chalk.red(`[ERROR]: ${message}`));
+  console.log(chalk.red(`[${getCurrentTime()}][ERROR]: ${message}`));
 };
 
 /**
@@ -18,7 +28,7 @@ const errorMsg = (message) => {
  *
  */
 const warnMsg = (message) => {
-  console.log(chalk.yellow(`[WARNING]: ${message}`));
+  console.log(chalk.yellow(`[${getCurrentTime()}][WARNING]: ${message}`));
 };
 
 /**
@@ -28,7 +38,7 @@ const warnMsg = (message) => {
  *
  */
 const successMsg = (message) => {
-  console.log(chalk.green(`[SUCCESS]: ${message}`));
+  console.log(chalk.green(`[${getCurrentTime()}][SUCCESS]: ${message}`));
 };
 
 /**
@@ -38,7 +48,7 @@ const successMsg = (message) => {
  *
  */
 const infoMsg = (message) => {
-  console.log(chalk.white(`[INFO]: ${message}`));
+  console.log(chalk.white(`[${getCurrentTime()}][INFO]: ${message}`));
 };
 
 /**
