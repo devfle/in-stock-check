@@ -8,7 +8,17 @@ import chalk from 'chalk';
  */
 function getCurrentTime() {
   const currentDate = new Date();
-  return `${currentDate.getHours()}:${currentDate.getMinutes()}`;
+  const currentHours = String(currentDate.getHours());
+  const currentMinutes = String(currentDate.getMinutes());
+
+  if (typeof currentHours !== 'string' || typeof currentMinutes !== 'string') {
+    return 'TIME ERROR';
+  }
+
+  return `${currentHours.padStart('2', '0')}:${currentMinutes.padStart(
+    '2',
+    '0'
+  )}`;
 }
 
 /**
