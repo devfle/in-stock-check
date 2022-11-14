@@ -33,7 +33,7 @@ const fetchWebsiteData = async (url) => {
   }
 
   const request = await fetch(url);
-  return request.text();
+  return await request.text();
 };
 
 /**
@@ -58,11 +58,11 @@ const searchInDom = (domText, searchQuery = '') => {
  * The Loop
  */
 setInterval(() => {
-  shopList.forEach((shopItem) => {
+  shopList.forEach(async (shopItem) => {
     const { shopName, productEndpoint, searchQuery, showProductLink } =
       shopItem;
     infoMsg(`NOW SEARCHING ON ${shopName}...`);
-    const fetchedTextDom = fetchWebsiteData(productEndpoint);
+    const fetchedTextDom = await fetchWebsiteData(productEndpoint);
     const searchResult = searchInDom(fetchedTextDom, searchQuery);
 
     if (searchResult) {
