@@ -15,7 +15,7 @@ The tool was originally built to send a notification when a certain product is b
 
 To protect sensitive information like API keys the project uses env files.
 
-```
+```text
 DISCORD_API_KEY="YOUR DISCORD BOT API KEY"
 CHANNEL_ID="THE ID OF THE DISCORD CHANNEL WHERE YOU WANT TO BECOME THE NOTIFICATION"
 LOGIN_MSG="OPTIONAL: A CUSTOM LOGIN MESSAGE"
@@ -25,7 +25,7 @@ LOGIN_MSG="OPTIONAL: A CUSTOM LOGIN MESSAGE"
 
 All metadata for the web pages that are to be analyzed are listed here.
 
-```
+```json
 [
   {
     "shopName": "NAME OF THE WEBSITE",
