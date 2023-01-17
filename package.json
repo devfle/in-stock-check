@@ -13,8 +13,8 @@
     "url": "git+https://github.com/devfle/stock-control.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "devfle",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/devfle/stock-control/issues"
   },
