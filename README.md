@@ -57,4 +57,12 @@ Multiple web pages can also be configured:
 
 ## Docker
 
-The NodeJs script can also run in a Docker environment.
+The NodeJs script can also run in a Docker environment:
+
+```
+cd in-stock-check
+```
+
+```
+docker build .
+```
