@@ -7,7 +7,7 @@ The tool was originally built to send a notification when a certain product is b
 ## How to setup
 
 1. Clone the repo
-2. `run npm ci` with node 16.X
+2. `run npm ci` with node 16.X (if you have installed nvm, run "nvm use")
 3. create a `.env` file in project root
 4. create a `shop-list.json` file in /src folder
 
