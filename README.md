@@ -36,7 +36,24 @@ All metadata for the web pages that are to be analyzed are listed here.
 ]
 ```
 
-Multiple web pages can also be configured.
+Multiple web pages can also be configured:
+
+```json
+[
+  {
+    "shopName": "NAME OF THE WEBSITE",
+    "productEndpoint": "URL TO THE WEBSITE",
+    "searchQuery": "THE SELECTOR YOU WANT TO SEARCH",
+    "showProductLink": false
+  },
+  {
+    "shopName": "NAME OF THE WEBSITE",
+    "productEndpoint": "URL TO THE WEBSITE",
+    "searchQuery": "THE SELECTOR YOU WANT TO SEARCH",
+    "showProductLink": false
+  }
+]
+```
 
 ## Docker
 
