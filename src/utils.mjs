@@ -17,7 +17,7 @@ function getCurrentTime() {
 
   return `${currentHours.padStart('2', '0')}:${currentMinutes.padStart(
     '2',
-    '0'
+    '0',
   )}`;
 }
 
@@ -83,4 +83,6 @@ const sendNotification = (client, message = '') => {
   channel.send(message);
 };
 
-export { errorMsg, warnMsg, successMsg, infoMsg, sendNotification };
+export {
+  errorMsg, warnMsg, successMsg, infoMsg, sendNotification,
+};

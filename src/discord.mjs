@@ -1,12 +1,10 @@
 import { Client, GatewayIntentBits } from 'discord.js';
-// eslint-disable-next-line import/extensions
 import { successMsg, sendNotification } from './utils.mjs';
 import 'dotenv/config';
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
-const loggedInMsg =
-  process.env.LOGIN_MSG || 'THE BOT WAS LOGGED IN SUCCESSFULL';
+const loggedInMsg = process.env.LOGIN_MSG || 'THE BOT WAS LOGGED IN SUCCESSFULL';
 
 // When the client is ready, run this code (only once)
 client.once('ready', () => {
