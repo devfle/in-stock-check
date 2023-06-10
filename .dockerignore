@@ -1,0 +1,10 @@
+.git
+.npm
+logs
+*.log
+node_modules/
+.nvmrc
+.eslintrc.json
+.env
+.gitignore
+*.md

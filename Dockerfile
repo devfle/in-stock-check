@@ -2,8 +2,9 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-COPY package.json /app
-RUN npm install --omit=dev
-COPY . /app
+COPY --chown=node:node . /app
+RUN --mount=type=secret,id=in-stock-env,dst=/app/.env \ 
+    npm install --omit=dev
 
-CMD npm start
+USER node
+CMD ["node", "src/index.mjs"]

@@ -59,10 +59,14 @@ Multiple web pages can also be configured:
 
 The NodeJs script can also run in a Docker environment:
 
-```
+1) Navigate into project dir
+
+```bash
 cd in-stock-check
 ```
 
-```
-docker build .
+Create .env file with necessary data and pass it as a secret:
+
+```bash
+docker build -t "in-stock-check" --secret id=in-stock-env,src=.env .
 ```
