@@ -68,7 +68,7 @@ The NodeJs script can also run in a Docker environment:
 cd in-stock-check
 ```
 
-Create .env file with necessary data and pass it as a secret:
+2) Create .env file with necessary data and pass it as a secret:
 
 ```bash
 docker build -t "in-stock-check" --secret id=in-stock-env,src=.env .
