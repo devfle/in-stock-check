@@ -56,25 +56,27 @@ const searchInDom = (domText, searchQuery = '') => {
 /**
  * The Loop
  */
-setInterval(() => {
-  shopList.forEach(async (shopItem) => {
-    const {
-      shopName, productEndpoint, searchQuery, showProductLink,
-    } = shopItem;
-    infoMsg(`NOW SEARCHING ON ${shopName}...`);
-    const fetchedTextDom = await fetchWebsiteData(productEndpoint);
-    const searchResult = searchInDom(fetchedTextDom, searchQuery);
+setInterval(
+  () => {
+    shopList.forEach(async (shopItem) => {
+      const { shopName, productEndpoint, searchQuery, showProductLink } =
+        shopItem;
+      infoMsg(`NOW SEARCHING ON ${shopName}...`);
+      const fetchedTextDom = await fetchWebsiteData(productEndpoint);
+      const searchResult = searchInDom(fetchedTextDom, searchQuery);
 
-    if (searchResult) {
-      successMsg(`ITEM IN STOCK AT: ${shopName}, SENDING NOTIFICATION...`);
-      sendNotification(
-        client,
-        `ITEM IN STOCK AT: ${shopName}. ${
-          showProductLink ? `LINK TO PRODUCT: ${productEndpoint}` : ''
-        }`,
-      );
-    } else {
-      warnMsg('NOTHING CHANGED...');
-    }
-  });
-}, 1000 * 60 * 30);
+      if (searchResult) {
+        successMsg(`ITEM IN STOCK AT: ${shopName}, SENDING NOTIFICATION...`);
+        sendNotification(
+          client,
+          `ITEM IN STOCK AT: ${shopName}. ${
+            showProductLink ? `LINK TO PRODUCT: ${productEndpoint}` : ''
+          }`,
+        );
+      } else {
+        warnMsg('NOTHING CHANGED...');
+      }
+    });
+  },
+  1000 * 60 * 30,
+);
