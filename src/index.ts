@@ -7,9 +7,9 @@ import {
   successMsg,
   warnMsg,
   sendNotification,
-} from './utils.js';
-import client from './discord.js';
-import { ShopItemData } from './types.js';
+} from './utils';
+import client from './discord';
+import ShopItemData from './types';
 
 if (!shopList) {
   errorMsg(

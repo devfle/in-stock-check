@@ -1,5 +1,5 @@
 import { Client, GatewayIntentBits } from 'discord.js';
-import { successMsg, sendNotification } from './utils.js';
+import { successMsg, sendNotification } from './utils';
 import 'dotenv/config';
 
 // Create a new client instance

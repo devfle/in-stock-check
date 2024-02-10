@@ -5,4 +5,4 @@ interface ShopItemData {
   showProductLink: boolean;
 }
 
-export { ShopItemData };
+export default ShopItemData;
