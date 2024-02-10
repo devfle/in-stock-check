@@ -31,5 +31,5 @@ jobs:
         with:
           node-version: '18'
       - run: npm ci
-      - run: echo "[]" > shop-list.json
+      - run: echo "[]" > ./src/shop-list.json
       - run: npm run build
