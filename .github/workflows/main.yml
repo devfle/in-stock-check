@@ -13,6 +13,7 @@ jobs:
         with:
           node-version: '18'
       - run: npm ci
+      - run: echo "[]" > ./src/shop-list.json
       - run: npm run lint
   code-styles:
     runs-on: ubuntu-latest
