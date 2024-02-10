@@ -7,4 +7,4 @@ RUN --mount=type=secret,id=in-stock-env,dst=/app/.env \
     npm install --omit=dev
 
 USER node
-CMD ["node", "src/index.mjs"]
+CMD ["node", "dist/index.js"]

@@ -4,15 +4,15 @@ Welcome to the Stock Check tool. This tool allows you to search for specific DOM
 
 <img width="70%" alt="01" src="https://github.com/devfle/in-stock-check/assets/52854338/9337120c-2c46-4313-82c1-cbc6e877400a">
 
-
 The tool was originally built to send a notification when a certain product is back in stock in a store.
 
 ## How to setup
 
 1. Clone the repo
-2. `run npm ci` with node 16.X (if you have installed nvm, run "nvm use")
+2. `run npm ci` with node 18.X (if you have installed nvm, run "nvm use")
 3. create a `.env` file in project root
 4. create a `shop-list.json` file in /src folder
+5. build the project with `npm run build`command
 
 ### .env file
 
@@ -62,13 +62,19 @@ Multiple web pages can also be configured:
 
 The NodeJs script can also run in a Docker environment:
 
-1) Navigate into project dir
+1. Navigate into project dir
 
 ```bash
 cd in-stock-check
 ```
 
-2) Create .env file with necessary data and pass it as a secret:
+2. Compile the script:
+
+```bash
+npm run build
+```
+
+3. Create .env file with necessary data and pass it as a secret:
 
 ```bash
 docker build -t "in-stock-check" --secret id=in-stock-env,src=.env .

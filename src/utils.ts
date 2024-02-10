@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
 import chalk from 'chalk';
+import { Client, TextChannel } from 'discord.js';
 
 /**
  * Returns the current time
  *
  * @returns {string} The current time
  */
-function getCurrentTime() {
+function getCurrentTime(): string {
   const currentDate = new Date();
   const currentHours = String(currentDate.getHours());
   const currentMinutes = String(currentDate.getMinutes());
@@ -15,10 +16,7 @@ function getCurrentTime() {
     return 'TIME ERROR';
   }
 
-  return `${currentHours.padStart('2', '0')}:${currentMinutes.padStart(
-    '2',
-    '0',
-  )}`;
+  return `${currentHours.padStart(2, '0')}:${currentMinutes.padStart(2, '0')}`;
 }
 
 /**
@@ -27,7 +25,7 @@ function getCurrentTime() {
  * @param {string} message - The message to be displayed in the console
  *
  */
-const errorMsg = (message) => {
+const errorMsg = (message: string) => {
   console.log(chalk.red(`[${getCurrentTime()}][ERROR]: ${message}`));
 };
 
@@ -37,7 +35,7 @@ const errorMsg = (message) => {
  * @param {string} message - The message to be displayed in the console
  *
  */
-const warnMsg = (message) => {
+const warnMsg = (message: string) => {
   console.log(chalk.yellow(`[${getCurrentTime()}][WARNING]: ${message}`));
 };
 
@@ -47,7 +45,7 @@ const warnMsg = (message) => {
  * @param {string} message - The message to be displayed in the console
  *
  */
-const successMsg = (message) => {
+const successMsg = (message: string) => {
   console.log(chalk.green(`[${getCurrentTime()}][SUCCESS]: ${message}`));
 };
 
@@ -57,18 +55,18 @@ const successMsg = (message) => {
  * @param {string} message - The message to be displayed in the console
  *
  */
-const infoMsg = (message) => {
+const infoMsg = (message: string) => {
   console.log(chalk.white(`[${getCurrentTime()}][INFO]: ${message}`));
 };
 
 /**
  * Sends a message to configured discord channel in .env file
  *
- * @param {string} client - A client instance to a discord server
+ * @param {Client} client - A client instance to a discord server
  * @param {string} message - The message to be send to the discord channel
  *
  */
-const sendNotification = (client, message = '') => {
+const sendNotification = (client: Client, message: string = '') => {
   if (!process.env.CHANNEL_ID) {
     errorMsg('NO CHANNEL ID WAS FOUND');
     return;
@@ -78,9 +76,10 @@ const sendNotification = (client, message = '') => {
 
   if (!channel) {
     errorMsg('CHANNEL WITH THE GIVEN ID WAS NOT FOUND');
+    return;
   }
 
-  channel.send(message);
+  (channel as TextChannel).send(message);
 };
 
 export { errorMsg, warnMsg, successMsg, infoMsg, sendNotification };

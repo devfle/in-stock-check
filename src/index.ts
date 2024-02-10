@@ -7,10 +7,11 @@ import {
   successMsg,
   warnMsg,
   sendNotification,
-} from './utils.mjs';
-import client from './discord.mjs';
+} from './utils.js';
+import client from './discord.js';
+import { ShopItemData } from './types.js';
 
-if (!shopList && shopList.length === 0) {
+if (!shopList) {
   errorMsg(
     "NO SHOP DATA FOUND IN 'shop-list.json' YOU HAVE TO CREATE AND CONFIGURE IT.",
   );
@@ -22,9 +23,9 @@ if (!shopList && shopList.length === 0) {
  *
  * @param {string} url  - The endpoint on which the DOM should be crawled
  *
- * @returns {string}
+ * @returns {Promise<string | null>}
  */
-const fetchWebsiteData = async (url) => {
+const fetchWebsiteData = async (url: string): Promise<string | null> => {
   if (typeof url !== 'string') {
     errorMsg('SHOP ENDPOINT NOT VALID');
     return null;
@@ -43,7 +44,7 @@ const fetchWebsiteData = async (url) => {
  *
  * @returns {boolean}
  */
-const searchInDom = (domText, searchQuery = '') => {
+const searchInDom = (domText: string, searchQuery: string = ''): boolean => {
   if (typeof searchQuery !== 'string') {
     errorMsg('QUERY IS NOT A STRING');
     return false;
@@ -58,11 +59,17 @@ const searchInDom = (domText, searchQuery = '') => {
  */
 setInterval(
   () => {
-    shopList.forEach(async (shopItem) => {
+    shopList.forEach(async (shopItem: ShopItemData) => {
       const { shopName, productEndpoint, searchQuery, showProductLink } =
         shopItem;
       infoMsg(`NOW SEARCHING ON ${shopName}...`);
       const fetchedTextDom = await fetchWebsiteData(productEndpoint);
+
+      if (!fetchedTextDom) {
+        errorMsg('FETCH DATA IS NOT VALID');
+        return;
+      }
+
       const searchResult = searchInDom(fetchedTextDom, searchQuery);
 
       if (searchResult) {
