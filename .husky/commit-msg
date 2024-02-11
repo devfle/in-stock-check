@@ -1,0 +1,3 @@
+npm prettier
+npm lint
+npm build
