@@ -69,14 +69,13 @@ const infoMsg = (message: string) => {
 const sendNotification = (client: Client, message: string = '') => {
   if (!process.env.CHANNEL_ID) {
     errorMsg('NO CHANNEL ID WAS FOUND');
-    return;
+    throw new TypeError();
   }
 
   const channel = client.channels.cache.get(process.env.CHANNEL_ID);
 
   if (!channel) {
-    errorMsg('CHANNEL WITH THE GIVEN ID WAS NOT FOUND');
-    return;
+    return warnMsg('CHANNEL WITH THE GIVEN ID WAS NOT FOUND');
   }
 
   (channel as TextChannel).send(message);

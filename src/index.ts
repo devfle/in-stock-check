@@ -15,7 +15,7 @@ if (!shopList) {
   errorMsg(
     "NO SHOP DATA FOUND IN 'shop-list.json' YOU HAVE TO CREATE AND CONFIGURE IT.",
   );
-  process.exit(1);
+  throw new TypeError();
 }
 
 /**
@@ -66,8 +66,7 @@ setInterval(
       const fetchedTextDom = await fetchWebsiteData(productEndpoint);
 
       if (!fetchedTextDom) {
-        errorMsg('FETCH DATA IS NOT VALID');
-        return;
+        return errorMsg('FETCH DATA IS NOT VALID');
       }
 
       const searchResult = searchInDom(fetchedTextDom, searchQuery);
