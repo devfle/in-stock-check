@@ -79,3 +79,38 @@ npm run build
 ```bash
 docker build -t "in-stock-check" --secret id=in-stock-env,src=.env .
 ```
+
+## Contributing
+
+Please follow the Prettier, ESLint and TypeScript rules included in this project.
+You can check your code with the following commands:
+
+Run ESLint:
+```bash
+npm run lint
+```
+
+Run Prettier:
+```bash
+npm run prettier
+```
+
+Compile TypeScript:
+```bash
+npm run build
+```
+
+While commiting, please use one of the following types:
+
+```javascript
+['build', 'chore', 'ci', 'docs', 'feat', 'fix', 'perf', 'refactor', 'revert', 'style', 'test']
+```
+
+Example:
+```bash
+git commit -m "chore: update packages"
+```
+
+
+
+
