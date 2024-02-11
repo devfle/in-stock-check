@@ -1,3 +1,3 @@
-npm prettier
-npm lint
-npm build
+npm run prettier
+npm run lint
+npm run build

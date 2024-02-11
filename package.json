@@ -10,7 +10,8 @@
     "lint": "eslint src/*.ts",
     "prettier": "prettier --check ./src/.",
     "build": "tsc",
-    "prepare": "husky"
+    "prepare": "husky",
+    "commitlint": "commitlint --edit"
   },
   "repository": {
     "type": "git",

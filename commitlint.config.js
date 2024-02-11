@@ -1,8 +1,8 @@
 const Configuration = {
-  extends: ['@commitlint/config-convetional'],
+  extends: ['@commitlint/config-conventional'],
   formatter: '@commitlint/format',
   rules: {
-    'type-enums': [
+    'type-enum': [
       2,
       'always',
       [
